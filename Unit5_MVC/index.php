@@ -15,7 +15,10 @@
 					break;
 				case 'add':
 					$controller_obj->add();
-					break;	
+					break;
+				case 'store':
+					$controller_obj->store();
+					break;			
 				default:
 					echo "Không tồn tại action này";
 					break;
@@ -30,6 +33,27 @@
 				case 'add':
 					echo "Thêm mới bài viết";
 					break;
+				default:
+					echo "Không tồn tại action này";
+					break;
+			}
+			break;
+		case 'author':
+			require_once('controllers/AuthorController.php');
+			$controller_obj = new AuthorController();
+			switch ($act) {
+				case 'list':
+					$controller_obj->list();
+					break;
+				case 'detail':
+					$controller_obj->detail();
+					break;
+				// case 'add':
+				// 	$controller_obj->add();
+				// 	break;
+				// case 'store':
+				// 	$controller_obj->store();
+				// 	break;
 				default:
 					echo "Không tồn tại action này";
 					break;

@@ -22,7 +22,18 @@
 		}
 
 		public function add(){
-			echo "<br> Thêm mới category";
-		}
+            require_once('views/category/add.php');
+        }
+        public function store(){
+            $data = array();
+            $data['title'] = $_POST['title'];
+            $data['description'] = $_POST['description'];
+            $status = $this->cate_model->create($data);
+            if ($status == true) {
+                header('Location: ?mod=category');
+            } else {
+                header('Location: ?mod=category&act=add');
+            }
+        }
 	}
  ?>

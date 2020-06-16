@@ -31,5 +31,9 @@
 			$data = $result->fetch_assoc();
 			return $data;
 		}
+		function create($data){
+            $query = "INSERT INTO categories(title,description) VALUES ('".$data['title']."','".$data['description']."')";
+            return $this->connection->query($query);
+        }
 	}
  ?>

@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <h2 align="center">Categories</h2>
-        <a href="" class="btn btn-primary">Add</a>
+        <a href="?mod=category&act=add" class="btn btn-primary">Add</a>
         <table class="table">
             <thead>
               <tr>
