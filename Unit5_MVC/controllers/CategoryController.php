@@ -35,5 +35,33 @@
                 header('Location: ?mod=category&act=add');
             }
         }
+        public function edit(){
+        	$id=isset($_GET['id'])?$_GET['id']:0;
+
+        	$cate = $this->cate_model->find($id);
+
+            require_once('views/category/edit.php');
+        }
+        public function update(){
+            $data = array();
+            $data['id'] = $_POST['id'];
+            $data['title'] = $_POST['title'];
+            $data['description'] = $_POST['description'];
+            $status = $this->cate_model->update($data);
+            if ($status == true) {
+                header('Location: ?mod=category');
+            } else {
+                header('Location: ?mod=category&act=edit&id='.$data['id']);
+            }
+        }
+        public function delete(){
+            $id=isset($_GET['id'])?$_GET['id']:0;
+
+            $cate = $this->cate_model->delete($id);
+
+            if ($cate == true) {
+                header('Location: ?mod=category');
+            }
+        }
 	}
  ?>
